@@ -1,0 +1,67 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+
+%opening
+\title{SciPy 2016 Submission Condensed Matter Physics Meets Python via SageMath}
+\author{Amit Jamadagni}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Group theory has been used to classify various phases of matter, but the same cannot be applied to phases of matter at absolute zero which are called as topological phases of matter. 
+In order to classify such topological phases of matter many theories have been proposed like Quantum Double Models, Levin-Wen String Net model, Twisted Quantum Double Model. This presentation aims to 
+introduce the audience to Quantum Double Models and some of the related properties like excitations, excitation condensation, identification of various boundaries using 
+the excitation condensation on the boundary. These properties are heavily dependent on the Group Theory constructs, therefore to compute the related properties SageMath has been used via SageMathCloud. 
+The explicit construction of the following properties : 
+ 1. Exictations in a model with and without a boundary
+ 2. Ribbon operator construction for the model with a boundary
+ 3. Computing the ground state in the presence of a boundary
+will be demonstrated for Symmetric Group of 2 labels (Toric Code), Symmetric Group of 3 labels (the smallest non-abelian group) though the code can be used for any general finite group. 
+The presentation aims at a particular kind of boundary construct, though in the literature there are more general boundary conditions. 
+The code used here can be easily extended to realize such boundary constructions which use cocycles of some group cohomology.    
+\end{abstract}
+
+\section{Long description}
+
+Phases of matter can be classified using Group Theory upto Symmetry Breaking. For example, consider the various phases of matter of water like steam(vapor), water(liquid), ice(solid). As one
+transistions from one phase to the other phase there is a symmetry lost in the form of translation, rotational invariance. Though uptil recently, the classification of phases of matter using
+such a description was thought to be complete, the discovery of phases of matter at absolute zero leads to the conclusion that there needs to be more evolved theory to classify such phases of   
+matter. Phases of matter at absolute zero can also be termed as Topological Phases of Matter. There are several theories like the Quantum Double Models, String-Net Models, Twisted Quantum Double
+Models which aim to classify theese phases of matter, though a complete theory is yet to be found. The presentation aims at presenting the Quantum Double Models and some related properties 
+of these models as mentioned in the abstract.
+
+Quantum Double Model : Let G be a finite group. Consider a lattice with edges indexed by elements of the group, that is each edge is associated with a vector from a vector space whose dimension
+is equal to the order of G. Let the edges be denoted by the ket (using Dirac's bra-ket notion) |g> where g is in G. To each vertex and face of the lattice attach a operator called the vertex and
+the face operator given by A_{v} and  $B_{f}$. The vertex operator acts on the legs of the vertex and rotates the vector indexed by a group element. The face operator is a delta function which
+relates the identity element of the group and the elements on the face of the lattice. The violation of the operators results in the creation of an excitation. To be more precise, consider a 
+operator F, connecting two different sites of the lattice. (Site here implying the face and the vertex together). If this operator commutes with the vertex and face operators at a 
+particular site, there is no excitation, but if they do not commute then an excitation is detected. To present it in a different way, the application of the operator called the ribbon operator
+creates a pair of excitations at the end sites (the sites at which the ribbon operator). The excitations of the lattice, given a fixed group are given by the irreducible representations (irreps) of the
+centralizers of the conjugacy classes of the group. For example in S_{3} the symmetric group of 3 labels, the generators of which are given by {(1,2),(1,2,3)}. There are three conjugacy classes
+and are given by {e},2-cycles, 3-cycles. The irreps of the centralizers can be viewed as the rows of the character table of the centralizer (which give more information that is the
+trace of the irrep). 
+
+Given a lattice indexed by group G, the boundary can be constructed using a subgroup K of G. That is, the elements on the boundary are indexed by the subgroup. This implies, the boundaries
+(not uniquely though) are identified by subgroups. Given a boundary, the excitations which condense are known by evaulating the inner product of character of excitation and character associated
+with a boundary. Therefore, a more concrete classification  of boundaries is by observing the condensate excitation on the boundary and tagging all the boundaries as isomorphic which have the same
+set of excitations condensing on the boundary. 
+
+Also, the ground state of the system, that is an eigen state of ribbon operator with eigen value 1, with an axial ribbon operator connecting both the boundaries is constructed.
+
+More general boundary conditions involve 2-cocycles and subgroups, and the current code can be easily extended to identify the other boundary conditions.
+
+Here are the links to the Notebook (PDF version of the same), slides related to the presentation. 
+
+Notebook : https://github.com/amitjamadagni/QDM_2016/blob/master/scipy2016/QDM_16.ipynb
+
+PDF version : https://github.com/amitjamadagni/QDM_2016/blob/master/scipy2016/QDM_16.pdf
+
+Slides : https://github.com/amitjamadagni/QDM_2016/blob/master/scipy2016/slides.pdf
+
+Note : Given an opportunity to present, I hope to use SageMathCloud. I hope to introduce both SageMath and SageMathCloud to the audience (as in the notebook and slides), later moving onto explain the work in detail.
+
+
+\end{document}
